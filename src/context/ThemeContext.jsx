@@ -10,7 +10,7 @@ const THEME_COLORS = {
 function initialTheme() {
   const savedTheme = localStorage.getItem(STORAGE_KEY);
   if (savedTheme === "dark" || savedTheme === "light") return savedTheme;
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export function ThemeProvider({ children }) {
