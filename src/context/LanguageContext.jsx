@@ -22,6 +22,7 @@ export function LanguageProvider({ children }) {
     root.dir = language === "ar" ? "rtl" : "ltr";
     document.title = copy.meta.title;
     updateMetaContent('meta[name="description"]', copy.meta.description);
+    updateMetaContent('meta[name="keywords"]', copy.meta.keywords || "");
     updateMetaContent('meta[property="og:title"]', copy.meta.title);
     updateMetaContent('meta[property="og:description"]', copy.meta.description);
     updateMetaContent('meta[property="og:locale"]', copy.meta.locale);

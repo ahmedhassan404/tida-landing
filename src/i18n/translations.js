@@ -4,6 +4,7 @@ export const translations = {
       title: "TIDA Business Solutions | Strategy Technology & Growth",
       description:
         "TIDA Business Solutions brings strategy marketing digital products ERP media and accounting support into one growth system",
+      keywords: "Tida, TIDA Business Solutions, strategy, marketing, ERP, digital marketing, business growth, Saudi Arabia, Egypt, UAE",
       locale: "en_US",
     },
     a11y: {
@@ -428,6 +429,7 @@ export const translations = {
       title: "تيدا لحلول الأعمال | الاستراتيجية والتقنية والنمو",
       description:
         "تجمع تيدا لحلول الأعمال بين الاستراتيجية والتسويق والحلول الرقمية وأنظمة ERP والإنتاج الإعلامي والدعم المحاسبي في منظومة نمو واحدة",
+      keywords: "تيدا, تيدا لحلول الأعمال, التسويق الرقمي, الاستراتيجية, نظام ERP, السعودية, مصر, الإمارات, نمو الأعمال",
       locale: "ar_AR",
     },
     a11y: {
