@@ -3,6 +3,7 @@ import { teamPortraits } from "../data/tidaContent.js";
 import Reveal from "./Reveal.jsx";
 import Container from "./ui/Container.jsx";
 import SectionHeader from "./ui/SectionHeader.jsx";
+import Image from "./ui/Image.jsx";
 
 export default function TeamSection() {
   const { copy } = useLanguage();
@@ -23,7 +24,7 @@ export default function TeamSection() {
             return (
               <Reveal className="team-card glass-card" delay={index * 0.08} key={member.id}>
                 <div className={`team-portrait team-portrait-${member.id}`}>
-                  <img
+                  <Image
                     alt={member.alt}
                     decoding="async"
                     height={portrait.height}

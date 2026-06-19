@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Expand } from "lucide-react";
+import Image from "./ui/Image.jsx";
 import { useLanguage } from "../hooks/useLanguage.js";
 import { portfolioProjects } from "../data/tidaContent.js";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
@@ -29,7 +30,7 @@ function PortfolioCard({ category, project, projectCopy, reduceMotion }) {
           transition={{ duration: reduceMotion ? 0.01 : 0.3 }}
           type="button"
         >
-          <img
+          <Image
             alt={projectCopy.alt}
             decoding="async"
             height={project.height}
@@ -48,7 +49,7 @@ function PortfolioCard({ category, project, projectCopy, reduceMotion }) {
       </DialogTrigger>
       <DialogContent className="portfolio-dialog">
         <div className="portfolio-dialog-image">
-          <img alt={projectCopy.alt} src={project.image} />
+          <Image alt={projectCopy.alt} src={project.image} />
         </div>
         <div className="portfolio-dialog-copy">
           <span>{category}</span>

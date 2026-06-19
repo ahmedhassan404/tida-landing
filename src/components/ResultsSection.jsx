@@ -8,6 +8,7 @@ import Reveal from "./Reveal.jsx";
 import Container from "./ui/Container.jsx";
 import GlassCard from "./ui/GlassCard.jsx";
 import SectionHeader from "./ui/SectionHeader.jsx";
+import Image from "./ui/Image.jsx";
 
 function ResultMetric({ metric, language }) {
   const metricRef = useRef(null);
@@ -59,7 +60,7 @@ export default function ResultsSection() {
             ))}
           </div>
           <Reveal className="results-proof">
-            <img
+            <Image
               alt={copy.results.imageAlt}
               decoding="async"
               height="560"

@@ -746,3 +746,12 @@ main:focus {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Image Loading Optimization */
+.img-loading {
+  opacity: 0 !important;
+  filter: blur(10px);
+}
+.img-loaded {
+  transition: opacity 0.5s ease-out, filter 0.5s ease-out;
+}

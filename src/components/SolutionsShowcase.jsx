@@ -4,6 +4,7 @@ import { useLanguage } from "../hooks/useLanguage.js";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 import { useQueryParamState } from "../hooks/useQueryParamState.js";
 import Container from "./ui/Container.jsx";
+import Image from "./ui/Image.jsx";
 import SectionHeader from "./ui/SectionHeader.jsx";
 import TabList from "./ui/TabList.jsx";
 import BorderBeam from "./magicui/BorderBeam.jsx";
@@ -43,7 +44,7 @@ function SolutionPanel({ solution, reduceMotion }) {
       </div>
       <div className={`solution-visual solution-visual-${solution.id}`}>
         {solution.id === "erp" && (
-          <img
+          <Image
             alt=""
             decoding="async"
             height="560"

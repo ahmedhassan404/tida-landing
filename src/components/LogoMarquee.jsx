@@ -2,6 +2,7 @@ import { partnerLogos } from "../data/tidaContent.js";
 import { useLanguage } from "../hooks/useLanguage.js";
 import Container from "./ui/Container.jsx";
 import Marquee from "./magicui/Marquee.jsx";
+import Image from "./ui/Image.jsx";
 
 export default function LogoMarquee() {
   const { copy } = useLanguage();
@@ -26,11 +27,10 @@ export default function LogoMarquee() {
               role="listitem"
               aria-hidden={index >= partnerLogos.length}
             >
-              <img
+              <Image
                 alt={`${copy.partners.logoAlt} ${index + 1}`}
                 decoding="async"
                 height={logo.height}
-                loading="lazy"
                 src={logo.src}
                 width={logo.width}
               />
