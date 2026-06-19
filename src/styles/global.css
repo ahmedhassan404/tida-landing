@@ -490,49 +490,6 @@ main:focus {
   box-shadow: var(--shadow-sm);
 }
 
-.accordion {
-  border-top: 1px solid var(--border);
-}
-
-.accordion-item {
-  border-bottom: 1px solid var(--border);
-}
-
-.accordion-trigger {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 64px minmax(0, 1fr) 24px;
-  align-items: center;
-  gap: 20px;
-  padding: 28px 0;
-  color: var(--text-primary);
-  font-size: clamp(1.05rem, 2vw, 1.45rem);
-  font-weight: 620;
-  text-align: start;
-}
-
-.accordion-chevron {
-  color: var(--text-muted);
-  transition: transform 260ms var(--ease-out);
-}
-
-.accordion-trigger[data-state="open"] .accordion-chevron {
-  color: var(--accent);
-  transform: rotate(180deg);
-}
-
-.accordion-content {
-  overflow: hidden;
-}
-
-.accordion-content[data-state="open"] {
-  animation: accordion-down 300ms var(--ease-out);
-}
-
-.accordion-content[data-state="closed"] {
-  animation: accordion-up 240ms ease-out;
-}
-
 .border-beam {
   position: absolute;
   z-index: 2;
@@ -645,26 +602,6 @@ main:focus {
   }
 }
 
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-
-  to {
-    height: 0;
-  }
-}
-
 @keyframes border-beam {
   0% {
     left: -120px;
@@ -728,11 +665,6 @@ main:focus {
     font-size: clamp(2.1rem, 11vw, 3.3rem);
   }
 
-  .accordion-trigger {
-    grid-template-columns: 42px minmax(0, 1fr) 20px;
-    gap: 10px;
-    padding: 22px 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

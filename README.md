@@ -23,11 +23,14 @@ Production verification:
 
 ```bash
 npm run lint
+npm test
 npm run build
 npm run preview
 ```
 
-The project does not currently define an automated test script.
+The Vitest suite covers language switching, translated process content, query
+parameter state, RTL tab navigation, reduced-motion preferences, and dynamic
+hero service numbering.
 
 ## Structure
 
