@@ -9,6 +9,7 @@ import ResultsSection from "./components/ResultsSection.jsx";
 import ServicesBento from "./components/ServicesBento.jsx";
 import SolutionsShowcase from "./components/SolutionsShowcase.jsx";
 import StickyFeatureWalkthrough from "./components/StickyFeatureWalkthrough.jsx";
+import StickyScrollytelling from "./components/StickyScrollytelling.jsx";
 import TeamSection from "./components/TeamSection.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import { useLanguage } from "./hooks/useLanguage.js";
@@ -28,7 +29,7 @@ export default function App() {
           <Hero />
           <LogoMarquee />
           <AboutSection />
-          <StickyFeatureWalkthrough />
+          <StickyScrollytelling />
           <ServicesBento />
           <SolutionsShowcase />
           <PortfolioShowcase />

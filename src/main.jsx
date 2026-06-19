@@ -6,6 +6,7 @@ import { ThemeProvider } from "./context/ThemeContext.jsx";
 import "./styles/tokens.css";
 import "./styles/global.css";
 import "./styles/sections.css";
+import "./styles/sticky-scrolly.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

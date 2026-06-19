@@ -1,0 +1,134 @@
+/* sticky-scrolly.css */
+.sticky-scrolly-section {
+  position: relative;
+  background: var(--surface);
+  padding: clamp(64px, 10vh, 120px) 0;
+  border-top: 1px solid var(--border);
+}
+
+.sticky-scrolly-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .sticky-scrolly-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+  }
+  
+  .sticky-scrolly-left {
+    position: sticky;
+    top: calc(var(--nav-height, 80px) + 40px);
+    height: fit-content;
+  }
+}
+
+.sticky-scrolly-content .eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sticky-scrolly-content h2 {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-weight: 560;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.sticky-scrolly-content p {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.sticky-scrolly-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 30vh;
+}
+
+.sticky-step {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-raised) 40%, transparent);
+  transition: border-color 400ms ease, background 400ms ease, box-shadow 400ms ease;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  will-change: transform, opacity, filter;
+}
+
+.sticky-step.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--surface-raised) 90%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: color 400ms ease;
+  padding-top: 4px;
+}
+
+.sticky-step.is-active .step-num {
+  color: var(--accent);
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 400ms ease;
+}
+
+.sticky-step:not(.is-active) .step-content h3 {
+  color: var(--text-secondary);
+}
+
+.step-desc-wrapper {
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.step-desc-wrapper p {
+  margin: 0;
+}
+
+.step-related {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding-bottom: 2px;
+  transition: border-color 200ms ease;
+  text-decoration: none;
+}
+
+.step-related:hover {
+  border-color: var(--accent);
+}
