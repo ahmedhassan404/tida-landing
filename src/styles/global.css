@@ -188,7 +188,7 @@ h3 {
 
 .button {
   display: inline-flex;
-  min-height: 42px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 9px;
@@ -236,14 +236,14 @@ h3 {
 }
 
 .button-sm {
-  min-height: 38px;
+  min-height: 44px;
   padding: 0 14px;
   font-size: 0.78rem;
 }
 
 .button-icon {
-  width: 40px;
-  min-height: 40px;
+  width: 44px;
+  min-height: 44px;
   padding: 0;
 }
 

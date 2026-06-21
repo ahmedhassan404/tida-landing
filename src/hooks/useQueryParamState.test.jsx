@@ -20,6 +20,13 @@ function QueryStateControls() {
 }
 
 describe("useQueryParamState", () => {
+  test("an unsupported query value falls back to the default", () => {
+    window.history.replaceState({}, "", "/?solution=unsupported");
+    render(<QueryStateControls />);
+
+    expect(screen.getByText("accounting")).toBeInTheDocument();
+  });
+
   test("selecting the default removes the query parameter", () => {
     window.history.replaceState({}, "", "/?solution=erp");
     render(<QueryStateControls />);

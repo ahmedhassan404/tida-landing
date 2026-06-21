@@ -1,6 +1,9 @@
-import { contactEmail } from "../../data/tidaContent.js";
+import { contactEmail, whatsappNumber, workingHours } from "../../data/tidaContent.js";
+import { navigation, serviceCatalog } from "../../data/siteContent.js";
 import { useLanguage } from "../../hooks/useLanguage.js";
+import { Link } from "react-router-dom";
 import Container from "../ui/Container.jsx";
+import { Button } from "../ui/Button.jsx";
 import Logo from "./Logo.jsx";
 
 export default function Footer() {
@@ -10,6 +13,10 @@ export default function Footer() {
     new Date().getFullYear()
   );
   const copyright = copy.footer.copyright.replace("{year}", year);
+  const links = navigation[language];
+  const services = serviceCatalog[language].filter((service) =>
+    ["financial", "saudi", "tourism", "ai", "web"].includes(service.id)
+  );
 
   return (
     <footer className="footer">
@@ -18,25 +25,32 @@ export default function Footer() {
           <div className="footer-brand">
             <Logo className="footer-logo" label={copy.a11y.home} />
             <p>{copy.footer.description}</p>
+            <Button asChild size="sm">
+              <Link to="/contact">{language === "ar" ? "احجز استشارة" : "Book Consultation"}</Link>
+            </Button>
           </div>
           <div className="footer-column">
             <h3>{copy.footer.navigationTitle}</h3>
-            {copy.nav.links.map((link) => (
-              <a href={link.href} key={link.href}>{link.label}</a>
+            {links.map((link) => (
+              <Link to={link.to} key={link.to}>{link.label}</Link>
             ))}
           </div>
           <div className="footer-column">
             <h3>{copy.footer.servicesTitle}</h3>
-            {copy.footer.serviceLinks.map((service) => (
-              <a href="#services" key={service}>{service}</a>
+            {services.map((service) => (
+              <Link to={service.to} key={service.id}>{service.title}</Link>
             ))}
           </div>
           <div className="footer-column">
             <h3>{copy.footer.countriesTitle}</h3>
             {copy.footer.countries.map((country) => (
-              <a href="#contact" key={country}>{country}</a>
+              <Link to="/contact" key={country}>{country}</Link>
             ))}
-            <a href={`mailto:${contactEmail}`}>{copy.footer.emailLabel}</a>
+            <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
+              {language === "ar" ? "واتساب" : "WhatsApp"}
+            </a>
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            <span>{workingHours[language]}</span>
           </div>
         </div>
         <div className="footer-bottom">

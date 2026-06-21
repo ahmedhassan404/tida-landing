@@ -7,6 +7,31 @@ import SectionHeader from "./ui/SectionHeader.jsx";
 
 const CARD_ICONS = [RefreshCw, Compass, Sparkles];
 
+function AboutCardsContent({ cards }) {
+  return (
+    <div className="about-grid">
+      {cards.map((card, index) => {
+        const Icon = CARD_ICONS[index];
+        return (
+          <GlassCard
+            as={Reveal}
+            className="about-card"
+            delay={index * 0.08}
+            key={card.label}
+          >
+            <div className="card-icon">
+              <Icon size={21} />
+            </div>
+            <span className="card-kicker">{card.label}</span>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </GlassCard>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function AboutSection() {
   const { copy } = useLanguage();
 
@@ -20,27 +45,7 @@ export default function AboutSection() {
           title={copy.about.title}
           titleId="about-title"
         />
-
-        <div className="about-grid">
-          {copy.about.cards.map((card, index) => {
-            const Icon = CARD_ICONS[index];
-            return (
-              <GlassCard
-                as={Reveal}
-                className="about-card"
-                delay={index * 0.08}
-                key={card.label}
-              >
-                <div className="card-icon">
-                  <Icon size={21} />
-                </div>
-                <span className="card-kicker">{card.label}</span>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </GlassCard>
-            );
-          })}
-        </div>
+        <AboutCardsContent cards={copy.about.cards} />
       </Container>
     </section>
   );

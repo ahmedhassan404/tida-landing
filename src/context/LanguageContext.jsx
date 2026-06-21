@@ -8,10 +8,6 @@ function initialLanguage() {
   return localStorage.getItem(STORAGE_KEY) === "ar" ? "ar" : "en";
 }
 
-function updateMetaContent(selector, content) {
-  document.querySelector(selector)?.setAttribute("content", content);
-}
-
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(initialLanguage);
   const copy = translations[language];
@@ -20,14 +16,7 @@ export function LanguageProvider({ children }) {
     const root = document.documentElement;
     root.lang = language;
     root.dir = language === "ar" ? "rtl" : "ltr";
-    document.title = copy.meta.title;
-    updateMetaContent('meta[name="description"]', copy.meta.description);
-    updateMetaContent('meta[name="keywords"]', copy.meta.keywords || "");
-    updateMetaContent('meta[property="og:title"]', copy.meta.title);
-    updateMetaContent('meta[property="og:description"]', copy.meta.description);
-    updateMetaContent('meta[property="og:locale"]', copy.meta.locale);
-    updateMetaContent('meta[name="twitter:title"]', copy.meta.title);
-    updateMetaContent('meta[name="twitter:description"]', copy.meta.description);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute("content", copy.meta.locale);
     localStorage.setItem(STORAGE_KEY, language);
   }, [copy, language]);
 

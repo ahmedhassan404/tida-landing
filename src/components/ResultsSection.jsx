@@ -20,7 +20,7 @@ function ResultMetric({ metric, language }) {
   return (
     <GlassCard as="article" className="result-card" ref={metricRef}>
       <div className="result-card-head">
-        <BarChart3 size={17} />
+        <BarChart3 aria-hidden="true" size={17} />
         <span className="status-dot" />
       </div>
       <strong>
@@ -70,6 +70,7 @@ export default function ResultsSection() {
             />
           </Reveal>
         </div>
+        {copy.results.source && <p className="results-source">{copy.results.source}</p>}
       </Container>
     </section>
   );

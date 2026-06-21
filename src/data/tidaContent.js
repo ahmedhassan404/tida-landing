@@ -1,4 +1,9 @@
 export const contactEmail = "a7medhasan404@gmail.com";
+export const whatsappNumber = "966550082883";
+export const workingHours = {
+  en: "Sunday–Thursday, 9:00 AM–5:00 PM",
+  ar: "الأحد–الخميس، 9:00 صباحًا–5:00 مساءً",
+};
 
 export const partnerLogos = Array.from(
   { length: 22 },

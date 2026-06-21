@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Menu } from "lucide-react";
-import { useActiveSection } from "../../hooks/useActiveSection.js";
+import { Link, NavLink } from "react-router-dom";
+import { navigation } from "../../data/siteContent.js";
 import { useLanguage } from "../../hooks/useLanguage.js";
-import { Button, ButtonLink } from "../ui/Button.jsx";
+import { Button } from "../ui/Button.jsx";
 import Separator from "../ui/Separator.jsx";
 import {
   Sheet,
@@ -29,31 +30,23 @@ function useScrolledNavbar() {
   return scrolled;
 }
 
-function DesktopNavigation({ activeSectionId, copy }) {
+function DesktopNavigation({ copy, links }) {
   return (
     <nav className="navbar-links" aria-label={copy.a11y.primaryNav}>
-      {copy.nav.links.map((link) => (
-        <a
-          aria-current={activeSectionId === link.href.slice(1) ? "location" : undefined}
-          key={link.href}
-          href={link.href}
-        >
+      {links.map((link) => (
+        <NavLink end={link.to === "/"} key={link.to} to={link.to}>
           {link.label}
-        </a>
+        </NavLink>
       ))}
     </nav>
   );
 }
 
 export default function Navbar() {
-  const { copy } = useLanguage();
+  const { copy, language } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = useScrolledNavbar();
-  const sectionIds = useMemo(
-    () => copy.nav.links.map((link) => link.href.slice(1)),
-    [copy.nav.links]
-  );
-  const activeSectionId = useActiveSection(sectionIds);
+  const links = navigation[language];
 
   return (
     <motion.header
@@ -63,17 +56,19 @@ export default function Navbar() {
       transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.div className="navbar-inner" layout>
-        <a className="navbar-brand" href="#top" aria-label={copy.a11y.home}>
+        <Link className="navbar-brand" to="/" aria-label={copy.a11y.home}>
           <Logo className="navbar-logo" label={copy.a11y.home} />
-        </a>
-        <DesktopNavigation activeSectionId={activeSectionId} copy={copy} />
+        </Link>
+        <DesktopNavigation copy={copy} links={links} />
         <div className="navbar-actions">
           <LanguageToggle />
           <ThemeToggle />
-          <ButtonLink className="navbar-cta" href="#contact" size="sm">
-            {copy.nav.cta}
-            <ArrowUpRight size={15} />
-          </ButtonLink>
+          <Button asChild className="navbar-cta" size="sm">
+            <Link to="/contact">
+              {language === "ar" ? "احجز استشارة" : "Book Consultation"}
+              <ArrowUpRight size={15} />
+            </Link>
+          </Button>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <Button
@@ -90,22 +85,24 @@ export default function Navbar() {
               <SheetDescription>{copy.hero.description}</SheetDescription>
               <Separator />
               <nav className="sheet-nav" aria-label={copy.a11y.mobileNav}>
-                {copy.nav.links.map((link) => (
-                  <a
-                    aria-current={activeSectionId === link.href.slice(1) ? "location" : undefined}
-                    href={link.href}
-                    key={link.href}
+                {links.map((link) => (
+                  <NavLink
+                    end={link.to === "/"}
+                    to={link.to}
+                    key={link.to}
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                     <ArrowUpRight size={16} />
-                  </a>
+                  </NavLink>
                 ))}
               </nav>
-              <ButtonLink href="#contact" onClick={() => setMenuOpen(false)}>
-                {copy.nav.cta}
-                <ArrowUpRight size={16} />
-              </ButtonLink>
+              <Button asChild>
+                <Link to="/contact" onClick={() => setMenuOpen(false)}>
+                  {language === "ar" ? "احجز استشارة" : "Book Consultation"}
+                  <ArrowUpRight size={16} />
+                </Link>
+              </Button>
             </SheetContent>
           </Sheet>
         </div>

@@ -14,7 +14,7 @@ export default function SectionHeader({
     return (
       <Reveal className={classNames("section-heading", "split-heading", className)}>
         <div>
-          <Badge>{eyebrow}</Badge>
+          {eyebrow && <Badge>{eyebrow}</Badge>}
           <h2 id={titleId}>{title}</h2>
         </div>
         <p>{description}</p>
@@ -24,7 +24,7 @@ export default function SectionHeader({
 
   return (
     <Reveal className={classNames("section-heading", className)}>
-      <Badge>{eyebrow}</Badge>
+      {eyebrow && <Badge>{eyebrow}</Badge>}
       <h2 id={titleId}>{title}</h2>
       {description && <p>{description}</p>}
     </Reveal>

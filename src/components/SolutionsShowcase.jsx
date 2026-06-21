@@ -32,7 +32,7 @@ function SolutionPanel({ solution, reduceMotion }) {
           <Icon size={22} />
         </div>
         <h3>{solution.title}</h3>
-        <p>{solution.description}</p>
+        {solution.description && <p>{solution.description}</p>}
         <ul>
           {solution.points.map((point) => (
             <li key={point}>
@@ -53,10 +53,12 @@ function SolutionPanel({ solution, reduceMotion }) {
             width="900"
           />
         )}
-        <div className="solution-stat">
-          <strong>{solution.stat}</strong>
-          <span>{solution.statLabel}</span>
-        </div>
+        {solution.stat && (
+          <div className="solution-stat">
+            <strong>{solution.stat}</strong>
+            <span>{solution.statLabel}</span>
+          </div>
+        )}
       </div>
     </motion.div>
   );

@@ -1,32 +1,35 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 import { LanguageContext } from "../context/languageContext.js";
 import { translations } from "../i18n/translations.js";
 import Hero from "./Hero.jsx";
 
 describe("Hero", () => {
-  test("service numbering is derived from the current content", () => {
-    const serviceCards = ["Marketing", "ERP", "Websites", "Branding"];
+  test("operating stages are derived from the localized signal", () => {
+    const signal = "Diagnose → Deliver → Improve → Scale";
     const copy = {
       ...translations.en,
       hero: {
         ...translations.en.hero,
-        serviceCards,
+        signal,
       },
     };
 
     render(
-      <LanguageContext.Provider
-        value={{ copy, language: "en", toggleLanguage: vi.fn() }}
-      >
-        <Hero />
-      </LanguageContext.Provider>
+      <MemoryRouter>
+        <LanguageContext.Provider
+          value={{ copy, language: "en", toggleLanguage: vi.fn() }}
+        >
+          <Hero />
+        </LanguageContext.Provider>
+      </MemoryRouter>
     );
 
-    expect(screen.getByText("01—04")).toBeInTheDocument();
-    const growthMap = screen.getByRole("img", { name: copy.hero.orbitLabel });
-    serviceCards.forEach((service) => {
-      expect(within(growthMap).getByText(service)).toBeInTheDocument();
+    const growthMap = screen.getByRole("region", { name: copy.hero.orbitLabel });
+    expect(within(growthMap).getByText("01—04")).toBeInTheDocument();
+    signal.split(/\s*→\s*/).forEach((stage) => {
+      expect(within(growthMap).getByText(stage)).toBeInTheDocument();
     });
   });
 });

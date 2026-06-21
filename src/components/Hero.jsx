@@ -1,108 +1,126 @@
-import { Fragment, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Check, Play } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Play,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage.js";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 import HeroHighlight from "./aceternity/HeroHighlight.jsx";
-import HeroServicesText from "./HeroServicesText.jsx";
 import GridPattern from "./magicui/GridPattern.jsx";
 import Spotlight from "./aceternity/Spotlight.jsx";
 import Badge from "./ui/Badge.jsx";
-import { ButtonLink } from "./ui/Button.jsx";
+import { Button } from "./ui/Button.jsx";
+import Image from "./ui/Image.jsx";
 
-const SERVICE_CYCLE_INTERVAL_MS = 2500;
-
-function useCyclingService(serviceCount, paused) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (paused || serviceCount < 2) return undefined;
-
-    const cycleId = window.setInterval(() => {
-      setActiveIndex((currentIndex) => (currentIndex + 1) % serviceCount);
-    }, SERVICE_CYCLE_INTERVAL_MS);
-
-    return () => window.clearInterval(cycleId);
-  }, [paused, serviceCount]);
-
-  return [activeIndex, setActiveIndex];
+function metricValue(metric) {
+  return `${metric.target}${metric.suffix}`;
 }
 
-function GrowthTrack({ activeIndex, serviceCount }) {
-  const trackCount = Math.ceil(serviceCount / 2);
-  const activeTrackIndex = Math.floor(activeIndex / 2);
+function HeroProofBoard({ copy }) {
+  const metrics = copy.results?.metrics?.slice(0, 2) || [];
+  const projects = copy.portfolio?.projects || {};
+  const proofTiles = [
+    {
+      alt: projects.campaignDashboard?.alt || "",
+      label: projects.campaignDashboard?.title || "Campaign dashboards",
+      src: "/assets/portfolio/campaign-dashboard.webp",
+    },
+    {
+      alt: projects.erp?.alt || "",
+      label: projects.erp?.title || "ERP systems",
+      src: "/assets/portfolio/erp.webp",
+    },
+    {
+      alt: projects.websites?.alt || "",
+      label: projects.websites?.title || "Website experiences",
+      src: "/assets/portfolio/websites.webp",
+    },
+  ];
 
   return (
-    <div className="growth-map-track" aria-hidden="true">
-      {Array.from({ length: trackCount }, (_, index) => (
-        <Fragment key={index}>
-          {index > 0 && <ArrowRight size={17} />}
-          <span className={activeTrackIndex === index ? "is-active" : ""} />
-        </Fragment>
-      ))}
-    </div>
+    <aside className="hero-proof-board" aria-labelledby="hero-proof-title">
+      <div className="hero-proof-head">
+        <span>{copy.results?.eyebrow || copy.portfolio?.eyebrow}</span>
+        <strong id="hero-proof-title">{copy.results?.title || copy.portfolio?.title}</strong>
+      </div>
+      <div className="hero-proof-metrics">
+        {metrics.map((metric) => (
+          <div className="hero-proof-metric" key={metric.label}>
+            <strong>{metricValue(metric)}</strong>
+            <span>{metric.label}</span>
+          </div>
+        ))}
+      </div>
+      <div className="hero-proof-gallery">
+        {proofTiles.map((tile) => (
+          <figure className="hero-proof-tile" key={tile.src}>
+            <Image
+              alt={tile.alt}
+              decoding="async"
+              height="360"
+              loading="lazy"
+              src={tile.src}
+              width="560"
+            />
+            <figcaption>{tile.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </aside>
   );
 }
 
-function GrowthNodes({ activeIndex, onActivate, reduceMotion, services }) {
+function HeroAssurance({ copy, reduceMotion }) {
+  const metrics = copy.results?.metrics || [];
+  const firstMetric = metrics[0] ? metricValue(metrics[0]) : null;
+
   return (
-    <div className="growth-map-nodes">
-      {services.map((service, index) => (
-        <motion.div
-          animate={{
-            opacity: activeIndex === index ? 1 : 0.58,
-            scale: activeIndex === index ? 1.025 : 0.985,
-          }}
-          className={`growth-node ${activeIndex === index ? "is-active" : ""}`}
-          key={service}
-          onMouseEnter={() => onActivate(index)}
-          transition={{ duration: reduceMotion ? 0.01 : 0.34, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={reduceMotion ? undefined : { opacity: 1, scale: 1.03, y: -8 }}
-        >
-          <span>{String(index + 1).padStart(2, "0")}</span>
-          <strong>{service}</strong>
-          <Check size={14} />
-        </motion.div>
-      ))}
-    </div>
+    <motion.div className="hero-assurance" {...heroEntrance(0.3, reduceMotion)}>
+      <span>{copy.hero.eyebrow}</span>
+      <span>{copy.financial?.delivery?.[0]}</span>
+      {firstMetric && <span>{firstMetric} {metrics[0].label}</span>}
+    </motion.div>
   );
 }
 
 function HeroVisual({ copy }) {
   const reduceMotion = usePrefersReducedMotion();
-  const [isHovered, setIsHovered] = useState(false);
-  const services = copy.hero.serviceCards;
-  const [activeIndex, setActiveIndex] = useCyclingService(
-    services.length,
-    isHovered || reduceMotion
-  );
+  const stages = copy.hero.signal.split(/\s*[→←]\s*/);
 
   return (
     <motion.div
       className="growth-map-wrap"
       initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 30 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       transition={{ duration: reduceMotion ? 0.01 : 0.8, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ amount: 0.2, once: true }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
     >
-      <div className="growth-map" aria-label={copy.hero.orbitLabel} role="img">
-        <div className="growth-map-header">
-          <span>
-            <i /> {copy.hero.signal}
-          </span>
-          <span>
-            01—{String(services.length).padStart(2, "0")}
-          </span>
+      <div className="hero-experience">
+        <div className="growth-map" aria-label={copy.hero.orbitLabel} role="region">
+          <div className="growth-map-header">
+            <span>
+              <i /> {copy.hero.orbitLabel}
+            </span>
+            <span>01—{String(stages.length).padStart(2, "0")}</span>
+          </div>
+          <ol className="growth-stages">
+            {stages.map((stage, index) => (
+              <li key={stage}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{stage}</strong>
+                {index < stages.length - 1 && <ArrowRight aria-hidden="true" size={18} />}
+              </li>
+            ))}
+          </ol>
+          <div className="growth-map-summary">
+            <Check aria-hidden="true" size={17} />
+            <p>{copy.hero.description}</p>
+          </div>
         </div>
-        <GrowthTrack activeIndex={activeIndex} serviceCount={services.length} />
-        <GrowthNodes
-          activeIndex={activeIndex}
-          onActivate={setActiveIndex}
-          reduceMotion={reduceMotion}
-          services={services}
-        />
+        <HeroProofBoard copy={copy} />
       </div>
     </motion.div>
   );
@@ -140,19 +158,21 @@ export default function Hero() {
           <motion.p className="hero-description" {...heroEntrance(0.18, reduceMotion)}>
             {copy.hero.description}
           </motion.p>
-          <motion.div {...heroEntrance(0.22, reduceMotion)}>
-            <HeroServicesText />
+          <motion.div className="hero-actions" {...heroEntrance(0.22, reduceMotion)}>
+            <Button asChild>
+              <Link to="/contact">
+                {copy.hero.primaryCta}
+                <ArrowUpRight size={17} />
+              </Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link to="/services">
+                <Play fill="currentColor" size={15} />
+                {copy.hero.secondaryCta}
+              </Link>
+            </Button>
           </motion.div>
-          <motion.div className="hero-actions" {...heroEntrance(0.26, reduceMotion)}>
-            <ButtonLink href="#contact">
-              {copy.hero.primaryCta}
-              <ArrowUpRight size={17} />
-            </ButtonLink>
-            <ButtonLink href="#services" variant="secondary">
-              <Play fill="currentColor" size={15} />
-              {copy.hero.secondaryCta}
-            </ButtonLink>
-          </motion.div>
+          <HeroAssurance copy={copy} reduceMotion={reduceMotion} />
         </div>
         <HeroVisual copy={copy} />
       </div>
