@@ -6,7 +6,7 @@ import StickyScrollytelling from "./StickyScrollytelling.jsx";
 
 describe("StickyScrollytelling", () => {
   test("arabic mode uses translated content and preserves the process anchor", () => {
-    localStorage.setItem("masar-global-language", "ar");
+    localStorage.setItem("tida-language", "ar");
 
     render(
       <LanguageProvider>

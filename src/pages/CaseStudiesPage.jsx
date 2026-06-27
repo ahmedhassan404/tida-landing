@@ -1,4 +1,4 @@
-﻿import CTASection from "../components/CTASection.jsx";
+import CTASection from "../components/CTASection.jsx";
 import { RelatedLinks } from "../components/ContentBlocks.jsx";
 import Container from "../components/ui/Container.jsx";
 import { pageCopy } from "../data/siteContent.js";
@@ -32,6 +32,7 @@ export default function CaseStudiesPage() {
         </Container>
       </section>
       <RelatedLinks links={[
+        { label: language === "ar" ? "استعرض الأعمال" : "View portfolio", to: "/portfolio" },
         { label: page.common.services, to: "/services" },
       ]} />
       <CTASection title={page.home.finalTitle} description={page.home.finalText} primaryLabel={page.common.consultation} />

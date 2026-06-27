@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { workingHours } from "../../data/siteAssets.js";
+import { contactEmail, whatsappNumber, workingHours } from "../../data/tidaContent.js";
 import { navigation, serviceCatalog } from "../../data/siteContent.js";
 import { useLanguage } from "../../hooks/useLanguage.js";
+import { Link } from "react-router-dom";
 import Container from "../ui/Container.jsx";
 import { Button } from "../ui/Button.jsx";
 import Logo from "./Logo.jsx";
@@ -23,7 +23,7 @@ export default function Footer() {
       <Container>
         <div className="footer-grid">
           <div className="footer-brand">
-            <Logo className="footer-logo" label={copy.a11y.home} variant="white" />
+            <Logo className="footer-logo" label={copy.a11y.home} />
             <p>{copy.footer.description}</p>
             <Button asChild size="sm">
               <Link to="/contact">{language === "ar" ? "احجز استشارة" : "Book Consultation"}</Link>
@@ -42,9 +42,14 @@ export default function Footer() {
             ))}
           </div>
           <div className="footer-column">
-            <h3>{language === "ar" ? "تواصل" : "Contact"}</h3>
-            <Link to="/contact">{language === "ar" ? "تواصل معنا" : "Contact Us"}</Link>
-            <Link to="/contact">{language === "ar" ? "احجز استشارة" : "Book Consultation"}</Link>
+            <h3>{copy.footer.countriesTitle}</h3>
+            {copy.footer.countries.map((country) => (
+              <Link to="/contact" key={country}>{country}</Link>
+            ))}
+            <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
+              {language === "ar" ? "واتساب" : "WhatsApp"}
+            </a>
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             <span>{workingHours[language]}</span>
           </div>
         </div>
@@ -53,7 +58,7 @@ export default function Footer() {
           <span>{copy.footer.signature}</span>
         </div>
       </Container>
-      <div className="footer-wordmark" aria-hidden="true">Masar Global</div>
+      <div className="footer-wordmark" aria-hidden="true">TIDA</div>
     </footer>
   );
 }

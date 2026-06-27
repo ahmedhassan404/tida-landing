@@ -6,8 +6,10 @@ import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import PortfolioPage from "./pages/PortfolioPage.jsx";
 import ServiceDetailPage from "./pages/ServiceDetailPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
+import TeamPage from "./pages/TeamPage.jsx";
 
 export default function App() {
   return (
@@ -19,7 +21,9 @@ export default function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/:serviceSlug" element={<ServiceDetailPage />} />
+          <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="case-studies" element={<CaseStudiesPage />} />
+          <Route path="team" element={<TeamPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

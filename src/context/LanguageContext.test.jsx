@@ -29,6 +29,6 @@ describe("LanguageProvider", () => {
 
     expect(screen.getByText(translations.ar.walkthrough.title)).toBeInTheDocument();
     await waitFor(() => expect(document.documentElement).toHaveAttribute("dir", "rtl"));
-    expect(localStorage.getItem("masar-global-language")).toBe("ar");
+    expect(localStorage.getItem("tida-language")).toBe("ar");
   });
 });

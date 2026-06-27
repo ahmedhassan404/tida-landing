@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, CircleDot, Workflow } from "lucide-react";
+import { ArrowUpRight, Check, CircleDot, MapPin, Workflow } from "lucide-react";
 import { Link } from "react-router-dom";
 import { serviceGroups } from "../data/siteContent.js";
 import { useLanguage } from "../hooks/useLanguage.js";
@@ -56,7 +56,7 @@ export function ProcessSection({ items, title }) {
 
 export function ServiceGroups() {
   const { language } = useLanguage();
-  const groups = serviceGroups[language].filter((group) => group.id !== "systems");
+  const groups = serviceGroups[language];
   return (
     <div className="service-group-grid">
       {groups.map((group) => (
@@ -72,6 +72,31 @@ export function ServiceGroups() {
         </article>
       ))}
     </div>
+  );
+}
+
+export function MarketCards({ items, title, description }) {
+  const { language } = useLanguage();
+  return (
+    <section className="section market-section">
+      <Container>
+        <SectionHeader
+          description={description}
+          eyebrow={language === "ar" ? "الأسواق" : "Markets served"}
+          split
+          title={title}
+        />
+        <div className="market-grid">
+          {items.map(([country, text]) => (
+            <article key={country}>
+              <MapPin size={22} />
+              <h3>{country}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
 

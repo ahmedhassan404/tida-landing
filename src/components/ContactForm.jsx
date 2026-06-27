@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LoaderCircle, Send, ShieldCheck } from "lucide-react";
 import { serviceCatalog } from "../data/siteContent.js";
-import { contactEndpoint } from "../data/siteAssets.js";
+import { contactEmail } from "../data/tidaContent.js";
 import { useLanguage } from "../hooks/useLanguage.js";
 import Reveal from "./Reveal.jsx";
 import { Button } from "./ui/Button.jsx";
@@ -14,89 +14,41 @@ const labels = {
     title: "Tell us what the business needs.",
     description: "A short, specific note helps us direct your request to the right specialist.",
     fields: {
-      name: "Full name", company: "Company name", phone: "Phone",
-      service: "Service interested in", message: "Message",
+      name: "Full name", company: "Company name", email: "Email", phone: "Phone",
+      country: "Country", service: "Service interested in", message: "Message",
       method: "Preferred contact method",
     },
     choose: "Choose an option",
-    methods: ["Phone", "WhatsApp"],
+    countries: ["Egypt", "Saudi Arabia", "UAE", "Other"],
+    methods: ["Phone", "WhatsApp", "Email"],
     submit: "Send request",
     submitting: "Sending request…",
     privacy: "Your details are used only to review and follow up on this request.",
-    success: "Your request is ready. We will follow up shortly.",
-    missingEndpoint: "Request captured. Contact endpoint is not configured yet.",
-    error: "We could not send the request. Please try again.",
-    subject: "New consultation request from Masar Global website",
+    subject: "New consultation request from TIDA website",
   },
   ar: {
     eyebrow: "طلب استشارة",
     title: "شاركنا احتياج شركتك.",
     description: "تساعدنا رسالة قصيرة ومحددة على توجيه طلبك إلى المتخصص المناسب.",
     fields: {
-      name: "الاسم الكامل", company: "اسم الشركة", phone: "رقم الهاتف",
-      service: "الخدمة المطلوبة", message: "الرسالة",
+      name: "الاسم الكامل", company: "اسم الشركة", email: "البريد الإلكتروني", phone: "رقم الهاتف",
+      country: "الدولة", service: "الخدمة المطلوبة", message: "الرسالة",
       method: "طريقة التواصل المفضلة",
     },
     choose: "اختر من القائمة",
-    methods: ["مكالمة هاتفية", "واتساب"],
+    countries: ["مصر", "السعودية", "الإمارات", "دولة أخرى"],
+    methods: ["مكالمة هاتفية", "واتساب", "البريد الإلكتروني"],
     submit: "إرسال الطلب",
     submitting: "جارٍ إرسال الطلب…",
     privacy: "تُستخدم بياناتك فقط لمراجعة الطلب والتواصل معك.",
-    subject: "طلب استشارة جديد من موقع مسار جلوبال",
+    subject: "طلب استشارة جديد من موقع تيدا",
   },
 };
 
 export default function ContactForm() {
   const { language } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState("");
   const copy = labels[language];
-  const statusCopy = {
-    success: copy.success || labels.en.success,
-    missingEndpoint: copy.missingEndpoint || labels.en.missingEndpoint,
-    error: copy.error || labels.en.error,
-  };
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
-    const payload = {
-      name: data.get("name")?.toString() || "",
-      phone: data.get("phone")?.toString() || "",
-      company: data.get("company")?.toString() || "",
-      service: data.get("Service")?.toString() || "",
-      preferredContactMethod: data.get("Preferred contact method")?.toString() || "",
-      message: data.get("message")?.toString() || "",
-    };
-
-    setSubmitting(true);
-    setStatus("");
-
-    if (!contactEndpoint) {
-      console.warn("VITE_CONTACT_ENDPOINT is not configured.", payload);
-      setSubmitting(false);
-      setStatus(statusCopy.missingEndpoint);
-      return;
-    }
-
-    try {
-      const response = await fetch(contactEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) throw new Error(`Contact request failed with ${response.status}`);
-      form.reset();
-      setStatus(statusCopy.success);
-    } catch (error) {
-      console.error(error);
-      setStatus(statusCopy.error);
-    } finally {
-      setSubmitting(false);
-    }
-  }
 
   return (
     <Reveal className="contact-form-panel glass-card">
@@ -105,23 +57,38 @@ export default function ContactForm() {
       <p>{copy.description}</p>
       <form
         acceptCharset="UTF-8"
+        action={`https://formsubmit.co/${contactEmail}`}
         className="contact-form"
-        onSubmit={handleSubmit}
+        method="POST"
+        onSubmit={() => setSubmitting(true)}
       >
+        <input type="hidden" name="_subject" value={copy.subject} />
+        <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="Language" value={language.toUpperCase()} />
         <input type="text" name="_honey" hidden autoComplete="off" />
 
         <label className="form-field" htmlFor="contact-name">
           <span>{copy.fields.name}</span>
-          <Input id="contact-name" name="name" autoComplete="name" minLength={2} maxLength={80} required />
+          <Input id="contact-name" name="Full name" autoComplete="name" minLength={2} maxLength={80} required />
         </label>
         <label className="form-field" htmlFor="contact-company">
           <span>{copy.fields.company}</span>
-          <Input id="contact-company" name="company" autoComplete="organization" maxLength={120} required />
+          <Input id="contact-company" name="Company" autoComplete="organization" maxLength={120} required />
+        </label>
+        <label className="form-field" htmlFor="contact-email">
+          <span>{copy.fields.email}</span>
+          <Input id="contact-email" name="Email" type="email" autoComplete="email" maxLength={160} required />
         </label>
         <label className="form-field" htmlFor="contact-phone">
           <span>{copy.fields.phone}</span>
-          <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" minLength={7} maxLength={20} dir="ltr" required />
+          <Input id="contact-phone" name="Phone" type="tel" autoComplete="tel" inputMode="tel" minLength={7} maxLength={20} dir="ltr" required />
+        </label>
+        <label className="form-field" htmlFor="contact-country">
+          <span>{copy.fields.country}</span>
+          <select className="input" defaultValue="" id="contact-country" name="Country" required>
+            <option disabled value="">{copy.choose}</option>
+            {copy.countries.map((country) => <option key={country}>{country}</option>)}
+          </select>
         </label>
         <label className="form-field" htmlFor="contact-service">
           <span>{copy.fields.service}</span>
@@ -139,15 +106,14 @@ export default function ContactForm() {
         </label>
         <label className="form-field form-field-message" htmlFor="contact-message">
           <span>{copy.fields.message}</span>
-          <Textarea id="contact-message" maxLength={1200} name="message" required rows={5} />
+          <Textarea id="contact-message" maxLength={1200} name="Message" required rows={5} />
         </label>
         <Button aria-busy={submitting} className="contact-submit" disabled={submitting} type="submit">
           {submitting ? copy.submitting : copy.submit}
           {submitting ? <LoaderCircle className="submit-spinner" size={17} /> : <Send size={17} />}
         </Button>
-        <span aria-live="polite" className="sr-only">{submitting ? copy.submitting : status}</span>
+        <span aria-live="polite" className="sr-only">{submitting ? copy.submitting : ""}</span>
       </form>
-      {status && <p className="contact-form-status" role="status">{status}</p>}
       <div className="contact-form-note"><ShieldCheck size={16} /><span>{copy.privacy}</span></div>
     </Reveal>
   );

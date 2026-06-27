@@ -12,7 +12,7 @@ export default function CTASection({ description, primaryLabel, title }) {
       <Container>
         <div className="route-cta-card">
           <div>
-            <span className="eyebrow">{language === "ar" ? "مسار جلوبال / الخطوة التالية" : "Masar Global / NEXT STEP"}</span>
+            <span className="eyebrow">{language === "ar" ? "تيدا / الخطوة التالية" : "TIDA / NEXT STEP"}</span>
             <h2>{title}</h2>
             <p>{description}</p>
           </div>

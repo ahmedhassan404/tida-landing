@@ -1,4 +1,4 @@
-import { partnerLogos } from "../data/siteAssets.js";
+import { partnerLogos } from "../data/tidaContent.js";
 import { useLanguage } from "../hooks/useLanguage.js";
 import Container from "./ui/Container.jsx";
 import Marquee from "./magicui/Marquee.jsx";

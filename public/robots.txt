@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://masar-global-landing.pages.dev/sitemap.xml
+Sitemap: https://tida-landing.pages.dev/sitemap.xml

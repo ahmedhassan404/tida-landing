@@ -1,14 +1,14 @@
 export const translations = {
   en: {
     meta: {
-      title: "Masar Global | Strategy Technology & Growth",
+      title: "TIDA Business Solutions | Strategy Technology & Growth",
       description:
-        "Masar Global combines strategy technology marketing financial consulting accounting systems compliance and AI-enabled operations in one growth system",
-      keywords: "Masar Global, Masar Global, financial consulting, accounting systems, Saudi compliance, MIS reporting, AI accounting, operations support, marketing, Saudi Arabia, Egypt, UAE",
+        "TIDA combines strategy technology marketing financial consulting accounting systems compliance and AI-enabled operations in one growth system",
+      keywords: "Tida, TIDA Business Solutions, financial consulting, accounting systems, Saudi compliance, MIS reporting, AI accounting, ERP, marketing, Saudi Arabia, Egypt, UAE",
       locale: "en_US",
     },
     a11y: {
-      home: "Masar Global home",
+      home: "TIDA Business Solutions home",
       primaryNav: "Primary navigation",
       mobileNav: "Mobile navigation",
       skipContent: "Skip to main content",
@@ -24,19 +24,19 @@ export const translations = {
         { label: "About", href: "#about" },
         { label: "Services", href: "#services" },
         { label: "Finance", href: "#financial-solutions" },
-        { label: "Work", href: "#work examples" },
-        { label: "People", href: "#people" },
+        { label: "Work", href: "#portfolio" },
+        { label: "Team", href: "#team" },
         { label: "Contact", href: "#contact" },
       ],
       cta: "Talk to us",
       language: "AR",
     },
     hero: {
-      eyebrow: "Integrated business system",
+      eyebrow: "Egypt · KSA · UAE",
       title: "Finance systems marketing and growth",
       titleAccent: "One accountable business partner",
       description:
-        "Masar Global helps growing companies in Egypt Saudi Arabia and the UAE improve financial control connect operations strengthen their market presence and automate repeated work",
+        "TIDA helps growing companies in Egypt Saudi Arabia and the UAE improve financial control connect operations strengthen their market presence and automate repeated work",
       primaryCta: "Book Consultation",
       secondaryCta: "Explore Services",
       orbitLabel: "Growth system",
@@ -46,17 +46,17 @@ export const translations = {
       eyebrow: "Partners",
       title: "Trusted by growing brands",
       subtitle: "Our partners in success",
-      logoAlt: "Masar Global partner logo",
+      logoAlt: "TIDA partner logo",
     },
     about: {
       eyebrow: "Built for business continuity",
       title: "A strategic, financial, administrative, and technical partner.",
       intro:
-        "Masar Global helps companies strengthen governance, improve financial control, transform operations digitally, and turn strategy into measurable execution.",
+        "TIDA helps companies strengthen governance, improve financial control, transform operations digitally, and turn strategy into measurable execution.",
       cards: [
         {
           label: "Company overview",
-          title: "Who Masar Global is",
+          title: "Who TIDA is",
           description:
             "A business-solutions partner for companies seeking growth, stronger governance, digital transformation, and sustainable operations.",
         },
@@ -75,7 +75,7 @@ export const translations = {
       ],
     },
     walkthrough: {
-      eyebrow: "The Masar Global growth system",
+      eyebrow: "The TIDA growth system",
       title: "Six moves from opportunity to scale",
       description:
         "See how strategy digital delivery campaigns operations and measurement work together",
@@ -109,7 +109,7 @@ export const translations = {
           id: "launch",
           title: "Launch growth campaigns",
           description:
-            "Run SEO SEM Google Ads social media CRM and advertising campaigns across the right channels",
+            "Run SEO SEM Google Ads social media WhatsApp email and advertising campaigns across the right channels",
           visualLabel: "Campaign dashboard",
           points: ["976K post views", "14K likes", "4301 shares"],
         },
@@ -117,7 +117,7 @@ export const translations = {
           id: "operate",
           title: "Manage business operations",
           description:
-            "Support accounting and implement operations support Zoho Books Zoho Books POS SQL and Oracle solutions around real workflows",
+            "Support accounting and implement ERP Odoo ERPNext POS SQL and Oracle solutions around real workflows",
           visualLabel: "Operations stack",
           points: ["Sales & inventory", "Accounting", "Resource planning"],
         },
@@ -147,7 +147,7 @@ export const translations = {
           id: "digital",
           title: "Digital Marketing",
           description:
-            "Google Ads social media CRM marketing paid advertising and membership campaigns",
+            "Google Ads social media WhatsApp email marketing paid advertising and membership campaigns",
         },
         {
           id: "search",
@@ -162,10 +162,10 @@ export const translations = {
             "Dynamic websites WordPress e-commerce stores applications and digital customer experiences",
         },
         {
-          id: "systems",
-          title: "Operations Support",
+          id: "erp",
+          title: "ERP Systems",
           description:
-            "Zoho Books Zoho Books SQL POS and Oracle solutions for resources sales inventory accounting and operations",
+            "Odoo ERPNext SQL POS and Oracle solutions for resources sales inventory accounting and operations",
         },
         {
           id: "accounting",
@@ -217,10 +217,10 @@ export const translations = {
           points: ["Dynamic websites", "WordPress", "E-commerce", "Applications"],
         },
         {
-          id: "systems",
-          label: "operations support & operations support",
+          id: "erp",
+          label: "ERP & business systems",
           title: "Business processes connected to one operational view.",
-          points: ["Zoho Books", "Zoho Books", "SQL databases", "POS systems", "Oracle"],
+          points: ["Odoo", "ERPNext", "SQL databases", "POS systems", "Oracle"],
         },
       ],
     },
@@ -247,7 +247,7 @@ export const translations = {
               id: "systems",
               title: "Accounting systems and implementation",
               description:
-                "Select and configure suitable operations support or accounting tools build the chart of accounts migrate data integrate teams and train users",
+                "Select and configure suitable ERP or accounting tools build the chart of accounts migrate data integrate teams and train users",
             },
           ],
           signal: {
@@ -335,7 +335,7 @@ export const translations = {
         eyebrow: "Designed for",
         title: "A finance model matched to the business",
         description:
-          "Masar Global combines legal setup accounting technology reporting and ongoing support through one coordinated delivery model",
+          "TIDA combines legal setup accounting technology reporting and ongoing support through one coordinated delivery model",
         groups: [
           {
             id: "investors",
@@ -359,28 +359,94 @@ export const translations = {
       },
       delivery: ["One-stop setup", "Monthly subscriptions", "Remote delivery", "Ongoing reporting"],
     },
+    portfolio: {
+      eyebrow: "Selected work",
+      title: "Proof across digital creative and operational work",
+      description:
+        "Website social restaurant interior campaign and ERP work selected from TIDA's portfolio",
+      filters: [
+        { id: "all", label: "All" },
+        { id: "social", label: "Social Media" },
+        { id: "websites", label: "Websites" },
+        { id: "restaurants", label: "Restaurants" },
+        { id: "interior", label: "Interior Design" },
+        { id: "adResults", label: "Ad Results" },
+        { id: "systems", label: "ERP / Systems" },
+      ],
+      projects: {
+        restaurants: {
+          title: "Restaurant menu collection",
+          alt: "Restaurant menu design collection",
+        },
+        interior: {
+          title: "Architecture & interior collection",
+          alt: "Architecture and interior design collection",
+        },
+        socialColor: {
+          title: "Social campaign creatives",
+          alt: "Colorful social media campaign designs",
+        },
+        socialIndustrial: {
+          title: "Industrial social content",
+          alt: "Industrial business social media designs",
+        },
+        socialCampaign: {
+          title: "Digital-content campaign",
+          alt: "Purple digital-content campaign designs",
+        },
+        websites: {
+          title: "Mobile website experiences",
+          alt: "Website experiences displayed on mobile devices",
+        },
+        campaignResults: {
+          title: "Campaign performance snapshots",
+          alt: "Campaign result dashboards with performance metrics",
+        },
+        campaignDashboard: {
+          title: "Views dashboards",
+          alt: "Campaign dashboards showing 42463 and 37594 views",
+        },
+        erp: {
+          title: "ERP systems",
+          alt: "ERP business system visual",
+        },
+      },
+    },
+    results: {
+      eyebrow: "Documented campaign evidence",
+      title: "Campaign results at a glance",
+      description: "Figures shown here come from campaign dashboards included in TIDA’s available portfolio with client names omitted where they are not published",
+      metrics: [
+        { target: 976, suffix: "K", label: "Post views recorded over 60 days" },
+        { target: 312, suffix: "K", label: "Post views recorded over 12 months" },
+        { target: 42463, suffix: "", label: "Views shown in campaign dashboard A" },
+        { target: 37594, suffix: "", label: "Views shown in campaign dashboard B" },
+      ],
+      imageAlt: "Campaign result dashboards and performance figures",
+      source: "Source: campaign screenshots in TIDA’s published portfolio showing reach indicators rather than claims of leads or revenue",
+    },
     why: {
-      title: "Why Masar Global",
+      title: "Why TIDA",
       items: [
         {
           title: "Strategy + execution in one place",
           description:
-            "The people can shape the direction build the assets launch the campaigns and support the systems underneath them",
+            "The team can shape the direction build the assets launch the campaigns and support the systems underneath them",
         },
         {
           title: "Arabic-region business understanding",
           description:
-            "Masar Global supports companies operating across Egypt Saudi Arabia the UAE and the wider Gulf",
+            "TIDA supports companies operating across Egypt Saudi Arabia the UAE and the wider Gulf",
         },
         {
           title: "Marketing technology & finance combined",
           description:
-            "Customer acquisition digital presence operations support and accounting support can be planned as connected business layers",
+            "Customer acquisition digital presence ERP and accounting support can be planned as connected business layers",
         },
         {
           title: "Presence and operations support",
           description:
-            "Masar Global works across the customer-facing experience and the internal systems that help the business deliver",
+            "TIDA works across the customer-facing experience and the internal systems that help the business deliver",
         },
         {
           title: "Growth with measurable signals",
@@ -393,28 +459,28 @@ export const translations = {
       eyebrow: "Leadership",
       title: "The people connecting finance strategy and technology",
       description:
-        "Masar Global's published leadership people spans executive direction financial consulting and programming and development",
+        "TIDA's published leadership team spans executive direction financial consulting and programming and development",
       members: [
         {
           id: "mohamed",
           name: "Dr Mohamed",
           role: "Chairman & CEO",
-          bio: "Leads Masar Global’s executive direction business strategy and regional growth priorities",
-          alt: "Dr Mohamed Chairman and CEO of Masar Global",
+          bio: "Leads TIDA’s executive direction business strategy and regional growth priorities",
+          alt: "Dr Mohamed Chairman and CEO of TIDA Business Solutions",
         },
         {
           id: "seham",
           name: "Dr Seham",
           role: "Co-Founder & Financial Consultant",
           bio: "Supports financial structure reporting controls and management decision-making",
-          alt: "Dr Seham Co-Founder and Financial Consultant at Masar Global",
+          alt: "Dr Seham Co-Founder and Financial Consultant at TIDA Business Solutions",
         },
         {
           id: "shady",
           name: "Eng Shady",
           role: "Programming & Development Manager",
           bio: "Leads software website system and automation delivery across digital projects",
-          alt: "Eng Shady Programming and Development Manager at Masar Global",
+          alt: "Eng Shady Programming and Development Manager at TIDA Business Solutions",
         },
       ],
     },
@@ -422,7 +488,7 @@ export const translations = {
       eyebrow: "Start a conversation",
       title: "Bring us the business problem not a perfect brief",
       description:
-        "Choose the service area share the context and the people will follow up through the most suitable office",
+        "Choose the service area share the context and the team will follow up through the most suitable office",
       callLabel: "Call office",
       form: {
         eyebrow: "Quick inquiry",
@@ -432,47 +498,62 @@ export const translations = {
         fields: {
           name: "Name",
           phone: "Phone number",
+          whatsapp: "WhatsApp number",
           message: "What would you like to build?",
         },
         submit: "Send request",
         submitting: "Sending request…",
-        privacy: "Your details help our people follow up.",
-        subject: "New inquiry from the Masar Global website",
+        privacy: "Your details help our team follow up.",
+        subject: "New inquiry from the TIDA website",
       },
       offices: [
         {
           id: "egypt",
+          code: "EG",
+          country: "Egypt",
+          city: "Alexandria",
+          address: "14 Abdel Khalek Tharwat St, Louran, Alexandria",
           phone: "01274177608",
         },
         {
           id: "ksa",
+          code: "SA",
+          country: "KSA",
+          city: "Riyadh",
+          address: "Al Mousa Complex, Al Olaya, Riyadh, Saudi Arabia",
           phone: "00966550082883",
         },
         {
           id: "uae",
+          code: "AE",
+          country: "UAE",
+          city: "Dubai",
+          address: "Al Barsha 1, Dubai, United Arab Emirates",
           phone: "00966550082883",
         },
       ],
     },
     footer: {
       description:
-        "Strategy technology media operations support and finance support for growing businesses",
+        "Strategy technology media ERP and finance support for growing businesses",
       navigationTitle: "Navigation",
       servicesTitle: "Services",
-      copyright: "© {year} Masar Global All rights reserved",
-      signature: "Masar Global / Business Solutions",
+      countriesTitle: "Countries",
+      countries: ["Egypt", "KSA", "UAE"],
+      copyright: "© {year} TIDA Business Solutions All rights reserved",
+      signature: "TIDA / Business Solutions",
     },
   },
   ar: {
     meta: {
-      title: "مسار جلوبال | الاستراتيجية والتقنية والنمو",
+      title: "تيدا لحلول الأعمال | الاستراتيجية والتقنية والنمو",
       description:
-        "تجمع مسار جلوبال بين الاستراتيجية والتقنية والتسويق والاستشارات المالية والأنظمة المحاسبية والامتثال والأتمتة الذكية في منظومة نمو واحدة",
-      keywords: "مسار جلوبال, مسار جلوبال, الاستشارات المالية, الأنظمة المحاسبية, الامتثال السعودي, تقارير MIS, المحاسبة بالذكاء الاصطناعي, operations support, السعودية, مصر, الإمارات",
+        "تجمع تيدا بين الاستراتيجية والتقنية والتسويق والاستشارات المالية والأنظمة المحاسبية والامتثال والأتمتة الذكية في منظومة نمو واحدة",
+      keywords: "تيدا, تيدا لحلول الأعمال, الاستشارات المالية, الأنظمة المحاسبية, الامتثال السعودي, تقارير MIS, المحاسبة بالذكاء الاصطناعي, ERP, السعودية, مصر, الإمارات",
       locale: "ar_AR",
     },
     a11y: {
-      home: "الصفحة الرئيسية لمسار جلوبال",
+      home: "الصفحة الرئيسية لتيدا لحلول الأعمال",
       primaryNav: "التنقل الرئيسي",
       mobileNav: "قائمة التنقل على الهاتف",
       skipContent: "تجاوز إلى المحتوى الرئيسي",
@@ -485,22 +566,22 @@ export const translations = {
     },
     nav: {
       links: [
-        { label: "عن مسار جلوبال", href: "#about" },
+        { label: "عن تيدا", href: "#about" },
         { label: "الخدمات", href: "#services" },
         { label: "الحلول المالية", href: "#financial-solutions" },
-        { label: "أعمالنا", href: "#work examples" },
-        { label: "الفريق", href: "#people" },
+        { label: "أعمالنا", href: "#portfolio" },
+        { label: "الفريق", href: "#team" },
         { label: "تواصل معنا", href: "#contact" },
       ],
       cta: "تواصل معنا",
       language: "EN",
     },
     hero: {
-      eyebrow: "منظومة أعمال متكاملة",
+      eyebrow: "مصر · السعودية · الإمارات",
       title: "المالية والأنظمة والتسويق والنمو",
       titleAccent: "مع شريك أعمال واحد مسؤول",
       description:
-        "تساعد مسار جلوبال الشركات النامية في مصر والسعودية والإمارات على تحسين الرقابة المالية وربط العمليات وتقوية حضورها في السوق وأتمتة العمل المتكرر",
+        "تساعد تيدا الشركات النامية في مصر والسعودية والإمارات على تحسين الرقابة المالية وربط العمليات وتقوية حضورها في السوق وأتمتة العمل المتكرر",
       primaryCta: "احجز استشارة",
       secondaryCta: "استكشف الخدمات",
       orbitLabel: "منظومة النمو",
@@ -510,17 +591,17 @@ export const translations = {
       eyebrow: "شركاء النجاح",
       title: "موثوقون لدى علامات تجارية طموحة",
       subtitle: "شركاؤنا في النجاح",
-      logoAlt: "شعار شريك لمسار جلوبال",
+      logoAlt: "شعار شريك لتيدا",
     },
     about: {
       eyebrow: "حلول تدعم استمرارية الأعمال",
       title: "شريك استراتيجي ومالي وإداري وتقني.",
       intro:
-        "تساعد مسار جلوبال الشركات على تعزيز الحوكمة وتحسين الرقابة المالية والتحول الرقمي وتحويل الاستراتيجية إلى تنفيذ قابل للقياس.",
+        "تساعد تيدا الشركات على تعزيز الحوكمة وتحسين الرقابة المالية والتحول الرقمي وتحويل الاستراتيجية إلى تنفيذ قابل للقياس.",
       cards: [
         {
           label: "نبذة عنا",
-          title: "من هي مسار جلوبال؟",
+          title: "من هي تيدا؟",
           description:
             "شريك لحلول الأعمال يدعم الشركات التي تسعى إلى النمو والحوكمة الأقوى والتحول الرقمي والتشغيل المستدام.",
         },
@@ -539,7 +620,7 @@ export const translations = {
       ],
     },
     walkthrough: {
-      eyebrow: "منظومة النمو من مسار جلوبال",
+      eyebrow: "منظومة النمو من تيدا",
       title: "ست خطوات من الفرصة إلى التوسع",
       description:
         "اكتشف كيف تعمل الاستراتيجية والتنفيذ الرقمي والحملات والعمليات والقياس معًا",
@@ -573,7 +654,7 @@ export const translations = {
           id: "launch",
           title: "إطلاق حملات النمو",
           description:
-            "ندير SEO وSEM وإعلانات جوجل والسوشيال ميديا وحملات CRM والحملات الإعلانية",
+            "ندير SEO وSEM وإعلانات جوجل والسوشيال ميديا وواتساب والبريد الإلكتروني والحملات الإعلانية",
           visualLabel: "لوحة أداء الحملات",
           points: ["976 ألف مشاهدة", "14 ألف إعجاب", "4301 مشاركة"],
         },
@@ -581,7 +662,7 @@ export const translations = {
           id: "operate",
           title: "إدارة عمليات الأعمال",
           description:
-            "ندعم المحاسبة ونطبّق operations support وZoho Books وZoho Books ونقاط البيع وSQL وOracle وفق سير العمل الفعلي",
+            "ندعم المحاسبة ونطبّق ERP وOdoo وERPNext ونقاط البيع وSQL وOracle وفق سير العمل الفعلي",
           visualLabel: "منظومة العمليات",
           points: ["المبيعات والمخزون", "المحاسبة", "تخطيط الموارد"],
         },
@@ -599,7 +680,7 @@ export const translations = {
       eyebrow: "الخدمات",
       title: "خبرات مترابطة في منظومة واحدة",
       description:
-        "تجمع مسار جلوبال التسويق والتقنية والمالية والإعلام والعمليات في نظام أعمال واحد",
+        "تجمع تيدا التسويق والتقنية والمالية والإعلام والعمليات في نظام أعمال واحد",
       items: [
         {
           id: "marketing",
@@ -611,7 +692,7 @@ export const translations = {
           id: "digital",
           title: "التسويق الرقمي",
           description:
-            "إعلانات جوجل والسوشيال ميديا وحملات CRM والإعلانات الممولة وحملات العضوية",
+            "إعلانات جوجل والسوشيال ميديا وواتساب والبريد الإلكتروني والإعلانات الممولة وحملات العضوية",
         },
         {
           id: "search",
@@ -626,10 +707,10 @@ export const translations = {
             "مواقع ديناميكية وووردبريس ومتاجر إلكترونية وتطبيقات وتجارب رقمية موجهة للعملاء",
         },
         {
-          id: "systems",
-          title: "أنظمة الأعمال",
+          id: "erp",
+          title: "أنظمة ERP",
           description:
-            "حلول Zoho Books وZoho Books وSQL ونقاط البيع وOracle لإدارة الموارد والمبيعات والمخزون والمحاسبة والعمليات",
+            "حلول Odoo وERPNext وSQL ونقاط البيع وOracle لإدارة الموارد والمبيعات والمخزون والمحاسبة والعمليات",
         },
         {
           id: "accounting",
@@ -681,10 +762,10 @@ export const translations = {
           points: ["مواقع ديناميكية", "مواقع ووردبريس", "متاجر إلكترونية", "تطبيقات"],
         },
         {
-          id: "systems",
-          label: "أنظمة الأعمال",
+          id: "erp",
+          label: "ERP وأنظمة الأعمال",
           title: "ربط عمليات الشركة في رؤية تشغيلية واحدة.",
-          points: ["Zoho Books", "Zoho Books", "قواعد بيانات SQL", "أنظمة نقاط البيع", "Oracle"],
+          points: ["Odoo", "ERPNext", "قواعد بيانات SQL", "أنظمة نقاط البيع", "Oracle"],
         },
       ],
     },
@@ -711,7 +792,7 @@ export const translations = {
               id: "systems",
               title: "تطبيق الأنظمة المحاسبية",
               description:
-                "اختيار وتهيئة نظام أعمال أو برنامج محاسبي مناسب وتصميم دليل الحسابات ونقل البيانات وربط الإدارات وتدريب المستخدمين",
+                "اختيار وتهيئة نظام ERP أو برنامج محاسبي مناسب وتصميم دليل الحسابات ونقل البيانات وربط الإدارات وتدريب المستخدمين",
             },
           ],
           signal: {
@@ -799,7 +880,7 @@ export const translations = {
         eyebrow: "مصمم من أجل",
         title: "نموذج مالي يناسب طبيعة العمل",
         description:
-          "تجمع مسار جلوبال التأسيس القانوني والتقنية المحاسبية والتقارير والدعم المستمر من خلال نموذج تقديم منسق",
+          "تجمع تيدا التأسيس القانوني والتقنية المحاسبية والتقارير والدعم المستمر من خلال نموذج تقديم منسق",
         groups: [
           {
             id: "investors",
@@ -823,8 +904,74 @@ export const translations = {
       },
       delivery: ["محطة خدمات شاملة", "اشتراكات شهرية", "تقديم عن بُعد", "تقارير مستمرة"],
     },
+    portfolio: {
+      eyebrow: "أعمال مختارة",
+      title: "نماذج من أعمالنا الرقمية والإبداعية والتشغيلية",
+      description:
+        "مجموعة مختارة من أعمال المواقع والمحتوى الرقمي والمطاعم والتصميم الداخلي والحملات الإعلانية وأنظمة تخطيط الموارد",
+      filters: [
+        { id: "all", label: "الكل" },
+        { id: "social", label: "سوشيال ميديا" },
+        { id: "websites", label: "مواقع" },
+        { id: "restaurants", label: "مطاعم" },
+        { id: "interior", label: "تصميم داخلي" },
+        { id: "adResults", label: "نتائج إعلانية" },
+        { id: "systems", label: "ERP / أنظمة" },
+      ],
+      projects: {
+        restaurants: {
+          title: "مجموعة قوائم مطاعم",
+          alt: "مجموعة تصميمات قوائم مطاعم",
+        },
+        interior: {
+          title: "مجموعة معمار وديكور",
+          alt: "مجموعة هندسة معمارية وتصميم داخلي",
+        },
+        socialColor: {
+          title: "تصميمات حملات اجتماعية",
+          alt: "تصميمات ملونة لحملات السوشيال ميديا",
+        },
+        socialIndustrial: {
+          title: "محتوى اجتماعي للقطاع الصناعي",
+          alt: "تصميمات سوشيال ميديا للأعمال الصناعية",
+        },
+        socialCampaign: {
+          title: "حملة محتوى رقمي",
+          alt: "تصميمات حملة محتوى رقمي باللون البنفسجي",
+        },
+        websites: {
+          title: "تجارب مواقع على الهاتف",
+          alt: "تجارب مواقع إلكترونية معروضة على هواتف",
+        },
+        campaignResults: {
+          title: "لقطات أداء الحملات",
+          alt: "لوحات نتائج حملات بأرقام الأداء",
+        },
+        campaignDashboard: {
+          title: "لوحات المشاهدات",
+          alt: "لوحات حملات تعرض 42463 و37594 مشاهدة",
+        },
+        erp: {
+          title: "أنظمة ERP",
+          alt: "تصميم بصري لنظام ERP للأعمال",
+        },
+      },
+    },
+    results: {
+      eyebrow: "أدلة موثقة من الحملات",
+      title: "نتائج الحملات بوضوح",
+      description: "الأرقام المعروضة مأخوذة من لوحات حملات موجودة في ملف أعمال تيدا المتاح مع حذف أسماء العملاء غير المنشورة",
+      metrics: [
+        { target: 976, suffix: "K", label: "مشاهدة منشورات مسجلة خلال 60 يومًا" },
+        { target: 312, suffix: "K", label: "مشاهدة منشورات مسجلة خلال 12 شهرًا" },
+        { target: 42463, suffix: "", label: "مشاهدة ظاهرة في لوحة الحملة أ" },
+        { target: 37594, suffix: "", label: "مشاهدة ظاهرة في لوحة الحملة ب" },
+      ],
+      imageAlt: "لوحات نتائج الحملات وأرقام الأداء",
+      source: "المصدر: لقطات الحملات في ملف أعمال تيدا المنشور وهي مؤشرات وصول وليست ادعاءات بعدد العملاء المحتملين أو الإيرادات",
+    },
     why: {
-      title: "لماذا مسار جلوبال",
+      title: "لماذا تيدا",
       items: [
         {
           title: "الاستراتيجية والتنفيذ في مكان واحد",
@@ -834,17 +981,17 @@ export const translations = {
         {
           title: "خبرة بأسواق المنطقة العربية",
           description:
-            "تدعم مسار جلوبال الشركات العاملة في مصر والسعودية والإمارات ومنطقة الخليج",
+            "تدعم تيدا الشركات العاملة في مصر والسعودية والإمارات ومنطقة الخليج",
         },
         {
           title: "التسويق والتقنية والمالية معًا",
           description:
-            "يمكن تخطيط اكتساب العملاء والحضور الرقمي وoperations support والدعم المحاسبي كطبقات مترابطة",
+            "يمكن تخطيط اكتساب العملاء والحضور الرقمي وERP والدعم المحاسبي كطبقات مترابطة",
         },
         {
           title: "دعم متكامل للحضور والعمليات",
           description:
-            "تعمل مسار جلوبال على تجربة العميل الخارجية والأنظمة الداخلية التي تساعد الشركة على تقديم خدماتها",
+            "تعمل تيدا على تجربة العميل الخارجية والأنظمة الداخلية التي تساعد الشركة على تقديم خدماتها",
         },
         {
           title: "نمو يستند إلى مؤشرات قابلة للقياس",
@@ -857,28 +1004,28 @@ export const translations = {
       eyebrow: "فريق القيادة",
       title: "خبرات تجمع الإدارة والمالية والتقنية",
       description:
-        "يجمع فريق قيادة مسار جلوبال بين الخبرة التنفيذية والاستشارات المالية والبرمجة والتطوير",
+        "يجمع فريق قيادة تيدا بين الخبرة التنفيذية والاستشارات المالية والبرمجة والتطوير",
       members: [
         {
           id: "mohamed",
           name: "د. محمد",
           role: "رئيس مجلس الإدارة والرئيس التنفيذي",
-          bio: "يقود الاتجاه التنفيذي واستراتيجية الأعمال وأولويات النمو الإقليمي في مسار جلوبال",
-          alt: "د محمد رئيس مجلس الإدارة والرئيس التنفيذي لمسار جلوبال",
+          bio: "يقود الاتجاه التنفيذي واستراتيجية الأعمال وأولويات النمو الإقليمي في تيدا",
+          alt: "د محمد رئيس مجلس الإدارة والرئيس التنفيذي لتيدا لحلول الأعمال",
         },
         {
           id: "seham",
           name: "د. سهام",
           role: "الشريك المؤسس والمستشار المالي",
           bio: "تدعم الهيكل المالي والتقارير والرقابة والقرارات الإدارية",
-          alt: "د سهام الشريك المؤسس والمستشار المالي في مسار جلوبال",
+          alt: "د سهام الشريك المؤسس والمستشار المالي في تيدا لحلول الأعمال",
         },
         {
           id: "shady",
           name: "م. شادي",
           role: "مدير البرمجة والتطوير",
           bio: "يقود تنفيذ البرمجيات والمواقع والأنظمة ومشروعات الأتمتة",
-          alt: "م شادي مدير البرمجة والتطوير في مسار جلوبال",
+          alt: "م شادي مدير البرمجة والتطوير في تيدا لحلول الأعمال",
         },
       ],
     },
@@ -896,35 +1043,50 @@ export const translations = {
         fields: {
           name: "الاسم",
           phone: "رقم الهاتف",
+          whatsapp: "رقم واتساب",
           message: "كيف يمكننا مساعدتك؟",
         },
         submit: "إرسال الطلب",
         submitting: "جارٍ إرسال الطلب…",
         privacy: "تُستخدم بياناتك لمتابعة طلبك والتواصل معك فقط",
-        subject: "طلب تواصل جديد من موقع مسار جلوبال",
+        subject: "طلب تواصل جديد من موقع تيدا",
       },
       offices: [
         {
           id: "egypt",
+          code: "EG",
+          country: "مصر",
+          city: "الإسكندرية",
+          address: "14 شارع عبد الخالق ثروت، لوران، الإسكندرية",
           phone: "01274177608",
         },
         {
           id: "ksa",
+          code: "SA",
+          country: "السعودية",
+          city: "الرياض",
+          address: "مجمع الموسى، شارع العليا، الرياض، المملكة العربية السعودية",
           phone: "00966550082883",
         },
         {
           id: "uae",
+          code: "AE",
+          country: "الإمارات",
+          city: "دبي",
+          address: "البرشاء 1، دبي، الإمارات العربية المتحدة",
           phone: "00966550082883",
         },
       ],
     },
     footer: {
       description:
-        "استراتيجية وتقنية وإعلام وأنظمة الأعمال ودعم مالي للشركات النامية",
+        "استراتيجية وتقنية وإعلام وأنظمة ERP ودعم مالي للشركات النامية",
       navigationTitle: "التنقل",
       servicesTitle: "الخدمات",
-      copyright: "© {year} مسار جلوبال جميع الحقوق محفوظة",
-      signature: "Masar Global / حلول الأعمال",
+      countriesTitle: "الدول",
+      countries: ["مصر", "السعودية", "الإمارات"],
+      copyright: "© {year} تيدا لحلول الأعمال جميع الحقوق محفوظة",
+      signature: "TIDA / حلول الأعمال",
     },
   },
 };

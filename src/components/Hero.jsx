@@ -13,31 +13,81 @@ import GridPattern from "./magicui/GridPattern.jsx";
 import Spotlight from "./aceternity/Spotlight.jsx";
 import Badge from "./ui/Badge.jsx";
 import { Button } from "./ui/Button.jsx";
+import Image from "./ui/Image.jsx";
+
+function metricValue(metric) {
+  return `${metric.target}${metric.suffix}`;
+}
+
+function HeroProofBoard({ copy }) {
+  const metrics = copy.results?.metrics?.slice(0, 2) || [];
+  const projects = copy.portfolio?.projects || {};
+  const proofTiles = [
+    {
+      alt: projects.campaignDashboard?.alt || "",
+      label: projects.campaignDashboard?.title || "Campaign dashboards",
+      src: "/assets/portfolio/campaign-dashboard.webp",
+    },
+    {
+      alt: projects.erp?.alt || "",
+      label: projects.erp?.title || "ERP systems",
+      src: "/assets/portfolio/erp.webp",
+    },
+    {
+      alt: projects.websites?.alt || "",
+      label: projects.websites?.title || "Website experiences",
+      src: "/assets/portfolio/websites.webp",
+    },
+  ];
+
+  return (
+    <aside className="hero-proof-board" aria-labelledby="hero-proof-title">
+      <div className="hero-proof-head">
+        <span>{copy.results?.eyebrow || copy.portfolio?.eyebrow}</span>
+        <strong id="hero-proof-title">{copy.results?.title || copy.portfolio?.title}</strong>
+      </div>
+      <div className="hero-proof-metrics">
+        {metrics.map((metric) => (
+          <div className="hero-proof-metric" key={metric.label}>
+            <strong>{metricValue(metric)}</strong>
+            <span>{metric.label}</span>
+          </div>
+        ))}
+      </div>
+      <div className="hero-proof-gallery">
+        {proofTiles.map((tile) => (
+          <figure className="hero-proof-tile" key={tile.src}>
+            <Image
+              alt={tile.alt}
+              decoding="async"
+              height="360"
+              loading="lazy"
+              src={tile.src}
+              width="560"
+            />
+            <figcaption>{tile.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </aside>
+  );
+}
 
 function HeroAssurance({ copy, reduceMotion }) {
+  const metrics = copy.results?.metrics || [];
+  const firstMetric = metrics[0] ? metricValue(metrics[0]) : null;
+
   return (
     <motion.div className="hero-assurance" {...heroEntrance(0.3, reduceMotion)}>
       <span>{copy.hero.eyebrow}</span>
       <span>{copy.financial?.delivery?.[0]}</span>
+      {firstMetric && <span>{firstMetric} {metrics[0].label}</span>}
     </motion.div>
   );
 }
 
 function HeroVisual({ copy }) {
   const reduceMotion = usePrefersReducedMotion();
-  const stageVariants = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 18, scale: reduceMotion ? 1 : 0.98 },
-    visible: (index) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: reduceMotion ? 0 : 0.18 + index * 0.12,
-        duration: reduceMotion ? 0.01 : 0.55,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    }),
-  };
   const stages = copy.hero.signal.split(/\s*[→←]\s*/);
 
   return (
@@ -56,48 +106,21 @@ function HeroVisual({ copy }) {
             </span>
             <span>01—{String(stages.length).padStart(2, "0")}</span>
           </div>
-          <motion.div
-            aria-hidden="true"
-            className="growth-map-flow"
-            initial={reduceMotion ? false : { scaleX: 0, opacity: 0 }}
-            transition={{ delay: 0.18, duration: reduceMotion ? 0.01 : 0.8, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ amount: 0.4, once: true }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-          >
+          <ol className="growth-stages">
             {stages.map((stage, index) => (
-              <motion.span
-                key={`${stage}-node`}
-                initial={reduceMotion ? false : { scale: 0.7, opacity: 0 }}
-                transition={{ delay: reduceMotion ? 0 : 0.34 + index * 0.12, duration: reduceMotion ? 0.01 : 0.45 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-              />
-            ))}
-          </motion.div>
-          <motion.ol
-            className="growth-stages"
-            initial="hidden"
-            viewport={{ amount: 0.35, once: true }}
-            whileInView="visible"
-          >
-            {stages.map((stage, index) => (
-              <motion.li custom={index} key={stage} variants={stageVariants}>
+              <li key={stage}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <strong>{stage}</strong>
                 {index < stages.length - 1 && <ArrowRight aria-hidden="true" size={18} />}
-              </motion.li>
+              </li>
             ))}
-          </motion.ol>
-          <motion.div
-            className="growth-map-summary"
-            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-            transition={{ delay: reduceMotion ? 0 : 0.58, duration: reduceMotion ? 0.01 : 0.55, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ amount: 0.5, once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
+          </ol>
+          <div className="growth-map-summary">
             <Check aria-hidden="true" size={17} />
             <p>{copy.hero.description}</p>
-          </motion.div>
+          </div>
         </div>
+        <HeroProofBoard copy={copy} />
       </div>
     </motion.div>
   );
