@@ -44,7 +44,7 @@ describe("FinancialSolutions", () => {
   });
 
   test("arabic mode renders RTL content and route navigation", async () => {
-    localStorage.setItem("tida-language", "ar");
+    localStorage.setItem("masar-global-language", "ar");
     renderFinanceExperience();
 
     await waitFor(() => expect(document.documentElement).toHaveAttribute("dir", "rtl"));

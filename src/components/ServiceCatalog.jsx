@@ -9,7 +9,7 @@ import Reveal from "./Reveal.jsx";
 
 const icons = {
   finance: ChartNoAxesCombined,
-  erp: Database,
+  systems: Database,
   saudi: Building2,
   tourism: Plane,
   ai: Bot,
@@ -19,7 +19,8 @@ const icons = {
 
 export default function ServiceCatalog({ limit }) {
   const { language } = useLanguage();
-  const services = limit ? serviceCatalog[language].slice(0, limit) : serviceCatalog[language];
+  const visibleServices = serviceCatalog[language].filter((service) => service.id !== "systems");
+  const services = limit ? visibleServices.slice(0, limit) : visibleServices;
 
   return (
     <div className="route-service-grid">

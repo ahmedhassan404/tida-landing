@@ -1,0 +1,15 @@
+:root {
+  --masar-bg-light: #FFFFFF;
+  --masar-bg-soft: #D9DCD6;
+  --masar-bg-dark: #141414;
+  --masar-navy: #16425B;
+  --masar-blue: #155aa5;
+  --masar-blue-dark-mode: #81C3D7;
+  --masar-orange: #f37621;
+}
+
+.logo-light { display: block; }
+.logo-dark { display: none; }
+
+html[data-theme="dark"] .logo-light { display: none; }
+html[data-theme="dark"] .logo-dark { display: block; }

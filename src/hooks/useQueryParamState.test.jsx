@@ -6,7 +6,7 @@ function QueryStateControls() {
   const [solution, selectSolution] = useQueryParamState(
     "solution",
     "accounting",
-    ["accounting", "erp"]
+    ["accounting", "systems"]
   );
 
   return (
@@ -28,10 +28,10 @@ describe("useQueryParamState", () => {
   });
 
   test("selecting the default removes the query parameter", () => {
-    window.history.replaceState({}, "", "/?solution=erp");
+    window.history.replaceState({}, "", "/?solution=systems");
     render(<QueryStateControls />);
 
-    expect(screen.getByText("erp")).toBeInTheDocument();
+    expect(screen.getByText("systems")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "select accounting" }));
 
     expect(screen.getByText("accounting")).toBeInTheDocument();

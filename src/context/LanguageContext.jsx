@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { translations } from "../i18n/translations.js";
 import { LanguageContext } from "./languageContext.js";
 
-const STORAGE_KEY = "tida-language";
+const STORAGE_KEY = "masar-global-language";
 
 function initialLanguage() {
   return localStorage.getItem(STORAGE_KEY) === "ar" ? "ar" : "en";

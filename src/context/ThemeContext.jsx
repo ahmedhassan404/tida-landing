@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import { ThemeContext } from "./themeContext.js";
 
-const STORAGE_KEY = "tida-theme";
+const STORAGE_KEY = "masar-global-theme";
 const THEME_COLORS = {
-  dark: "#0E0E0E",
-  light: "#FAFAFA",
+  dark: "#82378C",
+  light: "#F2F2F2",
 };
 
 function initialTheme() {
   const savedTheme = localStorage.getItem(STORAGE_KEY);
   if (savedTheme === "dark" || savedTheme === "light") return savedTheme;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "light";
 }
 
 export function ThemeProvider({ children }) {

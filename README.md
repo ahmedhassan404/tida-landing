@@ -1,4 +1,4 @@
-# TIDA Business Solutions Landing Page
+# Masar Global Landing Page
 
 Single-page bilingual company website built with React and Vite.
 
@@ -37,11 +37,11 @@ hero service numbering.
 - `src/components/layout/` — navbar, logo, theme/language controls, and footer
 - `src/components/ui/` — Radix-backed shadcn-style primitives
 - `src/components/magicui/` — bento, marquee, blur, grid, and border effects
-- `src/components/aceternity/` — hero, portfolio, and CTA effects
+- `src/components/aceternity/` — hero, work examples, and CTA effects
 - `src/components/` — landing-page sections
 - `src/context/` — language and theme state
 - `src/i18n/translations.js` — English and Arabic interface copy
-- `src/data/tidaContent.js` — canonical asset paths
+- `src/data/siteAssets.js` — canonical asset paths
 - `src/styles/` — theme tokens, shared styles, and responsive section styles
 
 ## Theme and language
@@ -52,6 +52,6 @@ Twitter metadata update when the language changes.
 
 ## Contact form
 
-The contact form posts to FormSubmit using the address configured as `contactEmail`
-in `src/data/tidaContent.js`. Update that value before deployment if inquiries should
-go to a different mailbox.
+The contact form builds a JSON payload with `name`, `email`, `phone`, `company`,
+and `message`, then POSTs it to `VITE_CONTACT_ENDPOINT`. Copy `.env.example` to a
+local env file and fill that value before deployment.

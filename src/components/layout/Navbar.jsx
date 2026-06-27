@@ -4,6 +4,7 @@ import { ArrowUpRight, Menu } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { navigation } from "../../data/siteContent.js";
 import { useLanguage } from "../../hooks/useLanguage.js";
+import { useTheme } from "../../hooks/useTheme.js";
 import { Button } from "../ui/Button.jsx";
 import Separator from "../ui/Separator.jsx";
 import {
@@ -44,6 +45,7 @@ function DesktopNavigation({ copy, links }) {
 
 export default function Navbar() {
   const { copy, language } = useLanguage();
+  const { theme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = useScrolledNavbar();
   const links = navigation[language];
@@ -57,7 +59,11 @@ export default function Navbar() {
     >
       <motion.div className="navbar-inner" layout>
         <Link className="navbar-brand" to="/" aria-label={copy.a11y.home}>
-          <Logo className="navbar-logo" label={copy.a11y.home} />
+          <Logo
+            className="navbar-logo"
+            label={copy.a11y.home}
+            variant={theme === "dark" ? "dark" : "light"}
+          />
         </Link>
         <DesktopNavigation copy={copy} links={links} />
         <div className="navbar-actions">

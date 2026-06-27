@@ -20,7 +20,7 @@ const SERVICE_ICONS = {
   digital: Bot,
   search: Search,
   development: Braces,
-  erp: Database,
+  systems: Database,
   accounting: BadgeDollarSign,
   media: Clapperboard,
   branding: Palette,

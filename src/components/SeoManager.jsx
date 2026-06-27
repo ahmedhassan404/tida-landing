@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { routeMetadata, serviceDetails } from "../data/siteContent.js";
 import { useLanguage } from "../hooks/useLanguage.js";
+import { siteConfig } from "../config/siteConfig.ts";
 
-const SITE_URL = "https://tida-landing.pages.dev";
+const SITE_URL = siteConfig.siteUrl;
 
 function setMeta(selector, content) {
   document.querySelector(selector)?.setAttribute("content", content);
@@ -28,7 +29,7 @@ export default function SeoManager() {
     const service = serviceSlug ? serviceDetails[serviceSlug]?.[language] : null;
     const metadata = service
       ? {
-          title: `${service.eyebrow} | ${language === "ar" ? "تيدا لحلول الأعمال" : "TIDA Business Solutions"}`,
+          title: `${service.eyebrow} | ${language === "ar" ? "مسار جلوبال" : "Masar Global"}`,
           description: service.description,
         }
       : routeMetadata[pathname]?.[language] || routeMetadata["/"][language];
